@@ -1,0 +1,27 @@
+const min = function(배열){
+  let output = 배열[0]
+  console.log(`처음 실행 때의 output = ${output}`)
+  for (const value of 배열){
+    console.log(`현재 비교 대상 ${output}과 ${value} 증에 작은것은?`)
+    if (output > value){
+      output = value
+    }
+    console.log(`=${output}`)
+  }
+  return output
+}
+const max = function(배열){
+  let output = 배열[0]
+  
+  for (const value of 배열){
+    
+    if (output < value){
+      output = value
+    }
+    
+  }
+  return output
+}
+
+console.log(min([52, 283, 32, 103, 288, 12, 57]))
+console.log(max([300,52, 283, 32, 103, 288, 12,500, 57]))

@@ -1,0 +1,51 @@
+const dog = {
+  name: '구름',
+  age: 7,
+  color: '갈색'
+}
+
+//과거(1)
+dog.status = dog.status !== undefined ? dog.status : '이상없음'
+
+//과거(2)
+dog.status = dog.status ? dog.status : '이상없음'
+
+//과거(3)
+dog.status = dog.status || '이상없음'
+
+현대(1)
+const dog = {
+  name: '구름',
+  age: 7,
+  color: '갈색',
+  status: '다리가 아파요'
+}
+const newDog = {
+  status: '이상없음',
+  ...dog  //<--이거 위치에따라 결과값이다르다
+}
+console.log(newDog)
+현대(2)
+const test = function({
+  name,
+  age,
+  color,
+  status = '이상없음'
+}) {
+  return `${name} : ${age} : ${color} : ${status}`
+}
+console.log(test({
+  name: '구름',
+  age: 7,
+  color: '갈색'
+}))
+//객체 속성을 뽑아서 사용
+const test = function (object) {
+  const {name, age, color, status} = {status: '이상없음', ...object}
+  return `${name} : ${age} : ${color} : ${status}`
+}
+console.log(test({
+  name: '구름',
+  age: 7,
+  color: '갈색'
+}))
